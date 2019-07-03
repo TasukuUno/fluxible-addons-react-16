@@ -1,0 +1,29 @@
+{
+  "name": "fluxible-addons-react-16",
+  "version": "0.1.0",
+  "description": "Fluxible addons for use with React >= 16.8",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TasukuUno/fluxible-addons-react-16"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.8.3",
+    "fluxible": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.22",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
+    "eslint": "^6.0.1",
+    "eslint-config-google": "^0.13.0",
+    "eslint-plugin-react": "^7.14.2",
+    "typescript": "^3.5.2"
+  }
+}
