@@ -7,7 +7,7 @@ with New Context API and Hooks.
 （This module is experimental.）
 
 ```
-npm i fluxible-addons-react-16
+npm i TasukuUno/fluxible-addons-react-16
 ```
 
 ## See Also
