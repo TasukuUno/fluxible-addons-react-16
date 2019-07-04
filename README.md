@@ -4,16 +4,23 @@ Fluxible addons for use with React >= 16.8
 without Legacy Context API and Lifecycle Methods,  
 with New Context API and Hooks.
 
+（This module is experimental.）
+
+```
+npm i fluxible-addons-react-16
+```
+
 ## See Also
 
-https://github.com/yahoo/fluxible/tree/master/packages/fluxible-addons-react
 https://github.com/yahoo/fluxible/issues/584
+
+<br>
 
 ## APIs and how to replace from fluxible-addons-react
 
 ### FluxibleComponent
 
-Same interface from original, but new context API is used internally.
+Same interface from [original API](https://github.com/yahoo/fluxible/blob/9586e4f438f5780f79f902d1275ee60c6b0d8170/packages/fluxible-addons-react/docs/api/FluxibleComponent.md), but new context API is used internally.
 
 ```tsx
 <FluxibleComponent context={context.getComponentContext()}>
@@ -24,7 +31,7 @@ Same interface from original, but new context API is used internally.
 
 ### createElementWithContext
 
-Same interface from original, but new FluxibleComponent is used internally.
+Same interface from [original API](https://github.com/yahoo/fluxible/blob/9586e4f438f5780f79f902d1275ee60c6b0d8170/packages/fluxible-addons-react/docs/api/createElementWithContext.md), but new FluxibleComponent is used internally.
 
 ```ts
 const app = new Fluxible({
@@ -37,7 +44,7 @@ const fluxibleComponent = createElementWithContext(context, props);
 
 ### connectToStores => useFluxibleStores
 
-By calling useFluxibleStores() hook, we can inject store values and subscribe changes.
+By calling `useFluxibleStores()` hook, we can inject store values and subscribe changes.
 
 ```tsx
 import React from 'react';
@@ -71,7 +78,7 @@ export default Component;
 
 ### this.context => useFluxibleContext
 
-By calling useFluxibleContext() hook, we can inject component context to call executeAction.
+By calling `useFluxibleContext()` hook, we can inject component context to call executeAction.
 
 ```tsx
 import React from 'react';
@@ -94,4 +101,27 @@ const Component: React.FC = () => {
 
 export default Component;
 ```
+<br><br>
 
+## troubleshooting
+
+### Error: Fluxible context is not provided! use FluxibleComponent or createElementWithContext
+
+To use `useFluxibleStores` and `useFluxibleContext`, Fluxible context must be provided in component tree.
+Use `FluxibleComponent` or `createElementWithContext`.
+
+### Error: Invariant Violation: Invalid hook call.
+
+[React Hooks API](https://reactjs.org/docs/hooks-reference.html) is called in `useFluxibleStores` and `useFluxibleContext`.  
+We can not call them in class components. Rewrite the component as a react function component.  
+See Also: https://reactjs.org/warnings/invalid-hook-call-warning.html#breaking-the-rules-of-hooks
+
+### Error: context.getStore is not a function
+
+Are you using `handleRoute` or `handleHistory` of [fluxible-router](https://github.com/yahoo/fluxible/tree/master/packages/fluxible-router)?  
+Yes, it is a problem.
+
+We may need to rewrite them using hooks because they also depend on Legacy Context API.  
+But I think it is out of scope of this module.
+
+Anyways, I hope New Context API and Hooks will be supported by the original fluxible modules. 😄
