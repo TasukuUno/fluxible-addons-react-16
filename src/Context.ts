@@ -10,7 +10,7 @@ export interface ComponentContext {
 
 function noopWithError() {
   return function() {
-    throw new Error('Fluxible ontext is not provided!');
+    throw new Error('Fluxible context is not provided! use FluxibleComponent or createElementWithContext');
   };
 }
 
