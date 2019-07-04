@@ -10,8 +10,8 @@
   "scripts": {
     "build": "tsc"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [ "fluxible", "React", "Hooks" ],
+  "author": "TasukuUno",
   "license": "ISC",
   "peerDependencies": {
     "react": "^16.8.3",
